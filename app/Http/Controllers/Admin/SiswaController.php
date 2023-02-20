@@ -40,14 +40,15 @@ class SiswaController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            // 'image' => 'image|mimes:png,jpg'
+            'image' => 'image|mimes:png,jpg'
         ]);
-
+        $file = $request->file('image')->store('public/students');
         $siswa = Siswa::create([
             'name' => $request->name,
+            'image' => $file,
         ]);
 
-        if($siswa){
+        if ($siswa) {
             Session::flash('success', 'Success adding data siswa');
             return redirect()->route('siswa.index');
         } else {
@@ -87,7 +88,6 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
     }
 
     /**
@@ -101,7 +101,7 @@ class SiswaController extends Controller
         $siswa = Siswa::findOrFail($id);
         $siswa->delete();
 
-        if($siswa){
+        if ($siswa) {
             Session::flash('success', 'Success delete data siswa');
             return redirect()->route('siswa.index');
         } else {

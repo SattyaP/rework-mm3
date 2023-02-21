@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use Session;
@@ -40,11 +41,13 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required'
+            'title' => 'required',
+            'image' => 'required|image|mimes:png,jpg'
         ]);
-
+        $image = $request->file('image')->store('public/events');
         $event = Event::create([
-            'title' => $request->title
+            'title' => $request->title,
+            'image' => $request->$image
         ]);
 
         if($event){
@@ -99,6 +102,7 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::findOrFail($id);
+        Storage::delete($event->image);
         $event->delete();
 
         if($event){

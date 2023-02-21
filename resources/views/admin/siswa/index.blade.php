@@ -30,8 +30,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th style="width: 100px">No</th>
-                                <th colspan="col">Foto</th>
+                                <th style="width: 50px">No</th>
+                                <th style="width: 150px">Foto</th>
                                 <th colspan="col">Nama</th>
                                 <th colspan="col">Aksi</th>
                             </tr>
@@ -40,7 +40,7 @@
                             @forelse ($siswa as $index => $siswas)
                                 <tr>
                                     <td class="data-number">{{ $index + 1 }}</td>
-                                    <td class="data-photo"><img class="img-fluid w-25 rounded"
+                                    <td class="data-photo"><img  class="img-fluid rounded"
                                             src="{{ Storage::url($siswas->image) }}" alt=""></td>
                                     <td class="data-name">{{ $siswas->name }}</td>
                                     <td class="data-action">

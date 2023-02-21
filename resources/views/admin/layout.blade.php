@@ -37,5 +37,6 @@
 <script src="https://kit.fontawesome.com/97c59dbe97.js" crossorigin="anonymous"></script>
 <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
 <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script>
+@yield('js')
 
 </html>

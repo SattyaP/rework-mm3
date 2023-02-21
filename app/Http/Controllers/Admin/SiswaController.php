@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use Session;
@@ -99,8 +100,8 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         $siswa = Siswa::findOrFail($id);
+        Storage::delete($siswa->image);
         $siswa->delete();
-
         if ($siswa) {
             Session::flash('success', 'Success delete data siswa');
             return redirect()->route('siswa.index');

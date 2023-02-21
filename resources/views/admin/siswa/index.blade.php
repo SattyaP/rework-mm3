@@ -5,9 +5,7 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Anjaz Bisa Tambah Siswa Nih !</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
-                DataTables documentation</a>.</p>
+        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusamus aspernatur dolorum vitae, dolor libero beatae voluptatibus odit quo repudiandae! <a target="_blank" href="https://datatables.net">Lorem ipsum dolor, sit amet consectetur adipisicing</a>.</p>
 
         <div class="card shadow mb-4 mt-2">
             <div class="card-header d-flex justify-content-between">
@@ -29,7 +27,7 @@
                             @forelse ($siswa as $index => $siswas)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td><img class="img-fluid w-50 rounded" src="{{ Storage::url($siswas->image) }}" alt=""></td>
+                                    <td><img class="img-fluid w-25 rounded" src="{{ Storage::url($siswas->image) }}" alt=""></td>
                                     <td>{{ $siswas->name }}</td>
                                     <td>
                                         <form action="{{ route('siswa.destroy', $siswas->id) }}" method="POST"
@@ -37,7 +35,7 @@
 
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -56,7 +54,7 @@
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; Your Website 2020</span>
+                <span>Copyright &copy; Faeest.Inc 2024</span>
             </div>
         </div>
     </footer>

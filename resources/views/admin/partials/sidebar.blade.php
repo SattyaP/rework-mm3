@@ -34,8 +34,23 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Isi Data</h6>
-                <a class="collapse-item" href="/siswa">Siswa</a>
-                <a class="collapse-item" href="/event">Event</a>
+                <a class="collapse-item" href="./siswa">Siswa</a>
+                <a class="collapse-item" href="./event">Event</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTree"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Data Blog</span>
+        </a>
+        <div id="collapseTree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Isi Data</h6>
+                <a class="collapse-item" href="./tag">Tag</a>
+                <a class="collapse-item" href="./blog">Blog</a>
             </div>
         </div>
     </li>

@@ -12,9 +12,10 @@
     <div class="card shadow mb-4 mt-2">
         <div class="card-header d-flex justify-content-between">
             <h5 class="mt-1 font-weight-bold text-primary">Data Event</h5>
-            <a class="btn btn-primary" href="{{ url('event/create')}}">Tambah Event</a>
+            <a class="btn btn-primary" href="./event/create">Tambah Event</a>
         </div>
         <div class="card-body">
+            @include('admin.partials.flash')
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>

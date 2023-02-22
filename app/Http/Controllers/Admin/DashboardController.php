@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Event;
+use App\Models\Tag;
 
 class DashboardController extends Controller
 {
@@ -17,8 +18,9 @@ class DashboardController extends Controller
     public function index()
     {
         $jumlahSiswa = Siswa::all()->count();
+        $jumlahTag = Tag::all()->count();
         $jumlahEvent = Event::all()->count();
-        return view('admin.dashboard.index', compact('jumlahSiswa','jumlahEvent'));
+        return view('admin.dashboard.index', compact('jumlahSiswa','jumlahEvent','jumlahTag'));
     }
 
     /**

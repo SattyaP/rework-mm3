@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use App\Models\Event;
-use Session;
+use App\Models\Tag;
+use Str;
 
-class EventController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $event = Event::orderBy('id')->paginate(10);
-
-        return view('admin.event.index', compact('event'));
+        $tags = Tag::paginate(10);
+        return response()->json($tags, 200);
     }
 
     /**
@@ -29,7 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('admin.event.create');
+        //
     }
 
     /**
@@ -40,23 +38,12 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg'
-        ]);
-        $image = $request->file('image')->store('public/events');
-        $event = Event::create([
-            'title' => $request->title,
-            'image' => $image
+        $tag = Tag::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name)
         ]);
 
-        if($event){
-            Session::flash('success', 'Success adding data event');
-            return redirect()->route('event.index');
-        } else {
-            Session::flash('error', 'Failed adding data event');
-            return redirect()->route('event.index');
-        }
+        return response()->json($tag, 200);
     }
 
     /**
@@ -67,7 +54,9 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::paginate($id);
+
+        return response()->json($tag, 200);
     }
 
     /**
@@ -88,9 +77,13 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->name = $request->name;
+        $tag->slug = $request->name;
+        $tag->save();
+
+        return response()->json($tag, 200);
     }
 
     /**
@@ -101,16 +94,8 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $event = Event::findOrFail($id);
-        Storage::delete($event->image);
-        $event->delete();
+        $tag = Tag::findOrfail($id);
 
-        if($event){
-            Session::flash('success', 'Success adding data event');
-            return redirect()->route('event.index');
-        } else {
-            Session::flash('error', 'Failed adding data event');
-            return redirect()->route('event.index');
-        }
+        return response()->json($tag, 200);
     }
 }

@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use App\Models\Event;
-use Session;
+use App\Models\Tag;
 
-class EventController extends Controller
+class TagController extends Controller
 {
+
+    public function __invoke(Request $request)
+    {
+        $tag = Tag::orderBy('id')->paginate(10);
+
+        return view('admin.tag.index', compact('tag'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +23,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $event = Event::orderBy('id')->paginate(10);
-
-        return view('admin.event.index', compact('event'));
+        
     }
 
     /**
@@ -29,7 +33,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('admin.event.create');
+        //
     }
 
     /**
@@ -40,23 +44,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg'
-        ]);
-        $image = $request->file('image')->store('public/events');
-        $event = Event::create([
-            'title' => $request->title,
-            'image' => $image
-        ]);
-
-        if($event){
-            Session::flash('success', 'Success adding data event');
-            return redirect()->route('event.index');
-        } else {
-            Session::flash('error', 'Failed adding data event');
-            return redirect()->route('event.index');
-        }
+        //
     }
 
     /**
@@ -101,16 +89,6 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $event = Event::findOrFail($id);
-        Storage::delete($event->image);
-        $event->delete();
-
-        if($event){
-            Session::flash('success', 'Success adding data event');
-            return redirect()->route('event.index');
-        } else {
-            Session::flash('error', 'Failed adding data event');
-            return redirect()->route('event.index');
-        }
+        //
     }
 }

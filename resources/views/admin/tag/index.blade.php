@@ -10,13 +10,12 @@
                 href="https://datatables.net">Lorem ipsum dolor, sit amet consectetur adipisicing</a>.</p>
 
         <div class="card shadow mb-4 mt-2">
-            <div class="card-header d-flex justify-content-between">
-                <h5 class="mt-1 font-weight-bold text-primary">Data Siswa</h5>
-                <a class="btn btn-primary" href="./siswa/create">Tambah Siswa</a>
+            <div class="card-header">
+                <h5 class="mt-1 font-weight-bold text-primary">Data Tag From API</h5>
             </div>
             <div class="card-body">
                 @include('admin.partials.flash')
-                <div class="table-responsive" id="students">
+                <div class="table-responsive" id="tag">
                     <div class="d-none d-sm-flex justify-content-end form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group my-2">
                             <input type="text" class="form-control bg-light border-0 small search" id="search"
@@ -31,32 +30,21 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th style="width: 50px">No</th>
-                                <th style="width: 150px">Foto</th>
-                                <th colspan="col">Nama</th>
-                                <th colspan="col">Aksi</th>
+                                <th colspan="col">No</th>
+                                <th colspan="col">Name</th>
+                                <th colspan="col">Slug</th>
                             </tr>
                         </thead>
                         <tbody class="list table-hover">
-                            @forelse ($siswa as $index => $siswas)
+                            @forelse ($tag as $index => $tags)
                                 <tr>
                                     <td class="data-number">{{ $index + 1 }}</td>
-                                    <td class="data-photo"><img  class="img-fluid rounded"
-                                            src="{{ Storage::url($siswas->image) }}" alt=""></td>
-                                    <td class="data-name">{{ $siswas->name }}</td>
-                                    <td class="data-action">
-                                        <form action="{{ route('siswa.destroy', $siswas->id) }}" method="POST"
-                                            enctype="multipart/form-data">
-
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
-                                        </form>
-                                    </td>
+                                    <td class="data-name">{{ $tags->name }}</td>
+                                    <td class="data-name">{{ $tags->slug }}</td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4">No data here</td>
+                                    <td colspan="3">No data here</td>
                                 </tr>
                             @endforelse
                         </tbody>

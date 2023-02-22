@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use App\Models\Event;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Blog;
+use App\Models\Tag;
 use Session;
 
-class EventController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +18,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        $event = Event::orderBy('id')->paginate(10);
+        $blog = Blog::orderBy('id')->paginate(10);
 
-        return view('admin.event.index', compact('event'));
+        return view('admin.blog.index', compact('blog'));
     }
 
     /**
@@ -29,7 +30,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('admin.event.create');
+        $tag = Tag::all();
+
+        return view('admin.blog.create', compact('tag'));
     }
 
     /**
@@ -40,22 +43,29 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $this->validate($request,[
             'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg'
-        ]);
-        $image = $request->file('image')->store('public/events');
-        $event = Event::create([
-            'title' => $request->title,
-            'image' => $image
+            'image' => 'required|image|mimes:png,jpg',
+            'tag_id' => 'required',
+            'description' => 'required',
+            'article' => 'required'
         ]);
 
-        if($event){
-            Session::flash('success', 'Success adding data event');
-            return redirect()->route('event.index');
+        $image = $request->file('image')->store('public/blogs');
+        $blog = Blog::create([
+            'title' => $request->title,
+            'image' => $image,
+            'tag_id' => $request->tag_id,
+            'description' => $request->description,
+            'article' => $request->article
+        ]);
+
+        if ($blog) {
+            Session::flash('success', 'Success adding data blog');
+            return redirect()->route('blog.index');
         } else {
-            Session::flash('error', 'Failed adding data event');
-            return redirect()->route('event.index');
+            Session::flash('error', 'Failed adding data blog');
+            return redirect()->route('blog.index');
         }
     }
 
@@ -101,16 +111,15 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $event = Event::findOrFail($id);
-        Storage::delete($event->image);
-        $event->delete();
-
-        if($event){
-            Session::flash('success', 'Success adding data event');
-            return redirect()->route('event.index');
+        $blog = Blog::findOrFail($id);
+        Storage::delete($blog->image);
+        $blog->delete();
+        if ($blog) {
+            Session::flash('success', 'Success delete data blog');
+            return redirect()->route('blog.index');
         } else {
-            Session::flash('error', 'Failed adding data event');
-            return redirect()->route('event.index');
+            Session::flash('error', 'Failed delete data blog');
+            return redirect()->route('blog.index');
         }
     }
 }

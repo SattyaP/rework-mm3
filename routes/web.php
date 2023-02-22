@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\SiswaController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +24,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('dashboard', DashboardController::class);
-Route::resource('siswa', SiswaController::class);
-Route::resource('event', EventController::class);
+Route::prefix('Kontol123Memek123Ajing123Kontol123Bangsat123')->group(function () {
+    Route::resource('dashboard', DashboardController::class);
+    Route::resource('siswa', SiswaController::class);
+    Route::resource('event', EventController::class);
+    Route::resource('blog', BlogController::class);
+    Route::get('tag', TagController::class, 'index');
+    Route::resource('home', HomeController::class);    
+});
+

@@ -4,19 +4,19 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Anjaz Bisa Tambah Siswa Nih !</h1>
+        <h1 class="h3 mb-2 text-gray-800">Anjaz Bisa Tambah Blog nih !</h1>
         <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusamus aspernatur dolorum
             vitae, dolor libero beatae voluptatibus odit quo repudiandae! <a target="_blank"
                 href="https://datatables.net">Lorem ipsum dolor, sit amet consectetur adipisicing</a>.</p>
 
         <div class="card shadow mb-4 mt-2">
             <div class="card-header d-flex justify-content-between">
-                <h5 class="mt-1 font-weight-bold text-primary">Data Siswa</h5>
-                <a class="btn btn-primary" href="./siswa/create">Tambah Siswa</a>
+                <h5 class="mt-1 font-weight-bold text-primary">Data Blog</h5>
+                <a class="btn btn-primary" href="./blog/create">Tambah Blog</a>
             </div>
             <div class="card-body">
                 @include('admin.partials.flash')
-                <div class="table-responsive" id="students">
+                <div class="table-responsive" id="blogs">
                     <div class="d-none d-sm-flex justify-content-end form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group my-2">
                             <input type="text" class="form-control bg-light border-0 small search" id="search"
@@ -32,22 +32,29 @@
                         <thead>
                             <tr>
                                 <th style="width: 50px">No</th>
+                                <th colspan="col">Title</th>
                                 <th style="width: 150px">Foto</th>
-                                <th colspan="col">Nama</th>
-                                <th colspan="col">Aksi</th>
+                                <th colspan="col">Tag</th>
+                                <th colspan="col">Description</th>
+                                <th colspan="col">Article</th>
+                                <th colspan="col">Action</th>
                             </tr>
                         </thead>
                         <tbody class="list table-hover">
-                            @forelse ($siswa as $index => $siswas)
+                            @forelse ($blog as $index => $blogs)
                                 <tr>
                                     <td class="data-number">{{ $index + 1 }}</td>
-                                    <td class="data-photo"><img  class="img-fluid rounded"
-                                            src="{{ Storage::url($siswas->image) }}" alt=""></td>
-                                    <td class="data-name">{{ $siswas->name }}</td>
+                                    <td class="data-name">{{ $blogs->title }}</td>
+                                    <td class="data-photo">
+                                        <img  class="img-fluid rounded" src="{{ Storage::url($blogs->image) }}" alt="">
+                                    </td>
+                                    <td>{{ $blogs->tag->name }}</td>
+                                    <td>{{ $blogs->description }}</td>
+                                    <td style="height: 10px">{!! $blogs->article !!}</td>
                                     <td class="data-action">
-                                        <form action="{{ route('siswa.destroy', $siswas->id) }}" method="POST"
+                                        <form action="{{ route('blog.destroy', $blogs->id) }}" method="POST"
                                             enctype="multipart/form-data">
-
+                                            
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm" type="submit">Delete</button>
@@ -56,7 +63,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4">No data here</td>
+                                    <td colspan="7">No data here</td>
                                 </tr>
                             @endforelse
                         </tbody>

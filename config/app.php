@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    "admin" => env("ADMIN_ROUTE","admin"),
     /*
     |--------------------------------------------------------------------------
     | Application Name

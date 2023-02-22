@@ -2,7 +2,7 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/{{ Config::get('app.admin') }}/dashboard">
         <div class="sidebar-brand-text mx-3">Dashboard</div>
     </a>
 
@@ -11,7 +11,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="/dashboard">
+        <a class="nav-link" href="/{{ Config::get('app.admin') }}/dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -34,8 +34,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Isi Data</h6>
-                <a class="collapse-item" href="./siswa">Siswa</a>
-                <a class="collapse-item" href="./event">Event</a>
+                <a class="collapse-item" href="/{{ Config::get('app.admin') }}/siswa">Siswa</a>
+                <a class="collapse-item" href="/{{ Config::get('app.admin') }}/event">Event</a>
             </div>
         </div>
     </li>
@@ -49,8 +49,8 @@
         <div id="collapseTree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Isi Data</h6>
-                <a class="collapse-item" href="./tag">Tag</a>
-                <a class="collapse-item" href="./blog">Blog</a>
+                <a class="collapse-item" href="/{{ Config::get('app.admin') }}/tag">Tag</a>
+                <a class="collapse-item" href="/{{ Config::get('app.admin') }}/blog">Blog</a>
             </div>
         </div>
     </li>

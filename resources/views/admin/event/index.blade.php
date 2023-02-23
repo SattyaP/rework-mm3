@@ -24,7 +24,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 100px" colspan="col">No</th>
-                                <th colspan="col">Foto</th>
+                                <th colspan="col">Id</th>
                                 <th colspan="col">Title</th>
                                 <th colspan="col">Aksi</th>
                             </tr>
@@ -33,8 +33,45 @@
                             @forelse ($event as $index => $events)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td></td>
+                                    <td>{{ $events->id }}</td>
                                     <td>{{ $events->title }}</td>
+                                    <td>
+                                        <form action="{{ route('event.destroy', $events->id) }}" method="POST"
+                                            enctype="multipart/form-data">
+
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4">No data here</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>  
+            <div class="card-body">
+                @include('admin.partials.flash')
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px" colspan="col">No</th>
+                                <th colspan="col">Id Title</th>
+                                <th colspan="col">Photo</th>
+                                <th colspan="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($event_photo as $index => $event_photos)
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $event_photos->event->title }}</td>
+                                    <td>{{ $event_photos->image }}</td>
                                     <td>
                                         <form action="{{ route('event.destroy', $events->id) }}" method="POST"
                                             enctype="multipart/form-data">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\EventPhoto;
 use Session;
 
 class EventController extends Controller
@@ -18,8 +19,9 @@ class EventController extends Controller
     public function index()
     {
         $event = Event::orderBy('id')->paginate(10);
+        $event_photo = EventPhoto::all();
 
-        return view('admin.event.index', compact('event'));
+        return view('admin.event.index', compact('event','event_photo'));
     }
 
     /**

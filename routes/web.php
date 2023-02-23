@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::prefix(Config::get("app.admin"))->group(function () {
-    Route::redirect("/", Config::get("app.admin") . "/dashboard");
+    Route::redirect("/", "/".Config::get("app.admin") . "/dashboard");
     Route::resource('dashboard', DashboardController::class);
     Route::resource('siswa', SiswaController::class);
     Route::resource('event', EventController::class);

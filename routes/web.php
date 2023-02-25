@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\DaftarNamaController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +21,10 @@ use Illuminate\Support\Facades\Route;
 |
 */ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('gallery', [GalleryController::class, 'index']);
+Route::get('daftar-nama', [DaftarNamaController::class, 'index']);
+
 Route::prefix(Config::get("app.admin"))->group(function () {
     Route::redirect("/", "/".Config::get("app.admin") . "/dashboard");
     Route::resource('dashboard', DashboardController::class);
@@ -31,3 +34,4 @@ Route::prefix(Config::get("app.admin"))->group(function () {
     Route::get('tag', TagController::class, 'index');
     Route::resource('home', HomeController::class);
 });
+

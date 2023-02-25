@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\Event;
 use App\Models\Tag;
+use App\Models\Blog;
 
 class DashboardController extends Controller
 {
@@ -20,7 +21,8 @@ class DashboardController extends Controller
         $jumlahSiswa = Siswa::all()->count();
         $jumlahTag = Tag::all()->count();
         $jumlahEvent = Event::all()->count();
-        return view('admin.dashboard.index', compact('jumlahSiswa','jumlahEvent','jumlahTag'));
+        $jumlahBlog = Blog::all()->count();
+        return view('admin.dashboard.index', compact('jumlahSiswa','jumlahEvent','jumlahTag','jumlahBlog'));
     }
 
     /**

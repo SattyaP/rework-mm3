@@ -408,12 +408,12 @@ canvas {
     outline: 0px solid #e4a11b50;
 }
 
-a[href="nama.html"]>.floating-btn:hover {
+a[href="./daftar-nama"]>.floating-btn:hover {
     outline: 8px solid #e4a11b50;
     transform: rotate(-270deg);
 }
 
-a[href="index.html"]>.floating-btn:hover {
+a[href="/"]>.floating-btn:hover {
     outline: 8px solid #e4a11b50;
     transform: rotate(270deg);
 }

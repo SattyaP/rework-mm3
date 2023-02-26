@@ -26,7 +26,7 @@
                         <select id="tag" class="form-select mb-3" aria-label="Default select example" name="tag_id">
                             <option selected>-- Choose Tag --</option>
                             @foreach ($tag as $tags)
-                            <option value="{{ $tags->id }}">{{ $tags->name }}</option>
+                                <option value="{{ $tags->id }}">{{ $tags->name }}</option>
                             @endforeach
                         </select>
 
@@ -46,4 +46,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/super-build/ckeditor.js"></script>
 @endsection

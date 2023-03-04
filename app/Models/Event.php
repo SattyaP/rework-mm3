@@ -12,5 +12,8 @@ class Event extends Model
     protected $fillable = [
         'title'
     ];
-    
+    public function eventphoto()
+    {
+        return $this->hasMany(EventPhoto::class);
+    }
 }

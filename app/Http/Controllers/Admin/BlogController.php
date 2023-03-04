@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Blog;
 use App\Models\Tag;
-use Session;
-
+use Illuminate\Support\Facades\Session;
 class BlogController extends Controller
 {
     /**

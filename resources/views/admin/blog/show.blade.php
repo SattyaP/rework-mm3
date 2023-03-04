@@ -89,6 +89,7 @@
     </main>
 
 
+    <script src="{{ asset('home/app/utils/particles/tsparticles.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('home/app/js/mdb.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('home/app/js/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('home/app/js/barba.min.js') }}" type="text/javascript"></script>
@@ -96,6 +97,7 @@
     <script src="{{ asset('home/app/js/solid.min.js') }}"></script>
     <script src="{{ asset('home/app/js/slick.min.js') }}"></script>
     <script src="{{ asset('home/app/app.js') }}" type="module"></script>
+    <script src="{{ asset('home/app/utils/particles/web-particles.min.js') }}" type="module"></script>
 </body>
 
 </html>

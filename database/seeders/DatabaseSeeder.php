@@ -26,8 +26,18 @@ class DatabaseSeeder extends Seeder
             $eventIDs = DB::table('events')->pluck('id');
             DB::table('event_photos')->insert([
                 'event_id' => $eventIDs->shuffle()->first(),
-                'image' => '/test/test.img'
+                'image' => 'storage/test.jpg'
             ]);
         }
+        DB::table("tags")->insert(["name" => "Vacation", "slug" => "vacation"]);
+        DB::table("tags")->insert(["name" => "Religion", "slug" => "religion"]);
+        $tagIDs = DB::table('tags')->pluck('id');
+        DB::table("blogs")->insert([
+            "tag_id" =>$tagIDs->shuffle()->first(),
+            "title" => "seed",
+            "image" => "",
+            "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo earum possimus repudiandae, exercitationem optio voluptas cum nesciunt ad aspernatur ipsum odit hic dolor, non totam eveniet odio et nulla ullam!",
+            "article" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo earum possimus repudiandae, exercitationem optio voluptas cum nesciunt ad aspernatur ipsum odit hic dolor, non totam eveniet odio et nulla ullam!"
+        ]);
     }
 }

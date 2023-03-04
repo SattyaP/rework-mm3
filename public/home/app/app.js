@@ -11,11 +11,7 @@ import { slickInitialize } from "./utils/slickInitialize.js";
 import { sleep } from "./utils/sleep.js";
 
 $(document).ready(async function () {
-    $(".menu-hamburger").on("click", () => {
-        $(".menu-hamburger").toggleClass("opened");
-        $(".sidebar").toggleClass("sidebar-hide");
-        $(".menu-hamburger").attr("aria-expanded", $(".menu-hamburger").hasClass("opened"));
-    });
+    
     animateNavbar()
     $(".loading-load").animate(
         {
@@ -38,9 +34,6 @@ import { barbaInitialize } from "./barbaInitialize.js";
 //back to top
 jqScroll();
 
-//go to top when socialmedia dissmised
-rfScroll();
-
 //transitions
 window.addEventListener("scroll", transisi);
 
@@ -54,14 +47,9 @@ window.smoothScroll = smScroll;
 let animGaris = heroText.animateLine();
 let animText = heroText.animateText();
 
-const animationToggleOff = () => {
-    window.clearInterval(animGaris);
-    window.clearInterval(animText);
-};
 
 // dismiss button
 dismissedButton();
-
 
 // barba transitions
 barbaInitialize();

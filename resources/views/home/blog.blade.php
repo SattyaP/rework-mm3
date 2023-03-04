@@ -12,7 +12,7 @@
                     <div class="col-lg-8">
                         <span id="time">{{ $blogs->created_at }}</span>
                         <h1>{{ $blogs->title }}</h1>
-                        <p>{{ str_limit($blogs->description, 200,'...') }}</p>
+                        <p>{{ Str::limit($blogs->description, 200,'...') }}</p>
                         <div id="tag">{{ $blogs->tag->name, $blogs->id }}</div>
                         <a class="btn-read" href="">Read More</a>
                     </div>

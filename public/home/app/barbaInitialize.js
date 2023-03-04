@@ -6,7 +6,7 @@ export function barbaInitialize() {
     let duration = 0.8;
     barba.init({
         prefetchIgnore: true,
-        timeout:4000,
+        timeout: 4000,
         transitions: [
             {
                 name: "right-transition",
@@ -17,7 +17,11 @@ export function barbaInitialize() {
                     gsap.to(data.current.container, {
                         opacity: 0,
                     });
-                    gsap.to(".barba-transition", { x: "-100%", y: "0", duration: 0 });
+                    gsap.to(".barba-transition", {
+                        x: "-100%",
+                        y: "0",
+                        duration: 0,
+                    });
                     return gsap.to(".barba-transition", {
                         ease: "expo.out",
                         duration: duration,
@@ -40,7 +44,8 @@ export function barbaInitialize() {
                             });
                             animateNavbar();
                             dismissedButton();
-                            slickInitialize();;
+                            slickInitialize();
+                            window.scrollTo(0, 0);
                         },
                     });
                 },
@@ -54,7 +59,11 @@ export function barbaInitialize() {
                     gsap.to(data.current.container, {
                         opacity: 0,
                     });
-                    gsap.to(".barba-transition", { x: "100%", y: 0, duration: 0 });
+                    gsap.to(".barba-transition", {
+                        x: "100%",
+                        y: 0,
+                        duration: 0,
+                    });
                     return gsap.to(".barba-transition", {
                         ease: "expo.out",
                         duration: duration,
@@ -77,7 +86,8 @@ export function barbaInitialize() {
                             });
                             animateNavbar();
                             dismissedButton();
-                            slickInitialize();;
+                            slickInitialize();
+                            window.scrollTo(0, 0);
                         },
                     });
                 },
@@ -91,7 +101,11 @@ export function barbaInitialize() {
                     gsap.to(data.current.container, {
                         opacity: 0,
                     });
-                    gsap.to(".barba-transition", { x: "0", y: "-100%", duration: 0 });
+                    gsap.to(".barba-transition", {
+                        x: "0",
+                        y: "-100%",
+                        duration: 0,
+                    });
                     return gsap.to(".barba-transition", {
                         ease: "expo.out",
                         duration: duration,
@@ -114,7 +128,8 @@ export function barbaInitialize() {
                             });
                             animateNavbar();
                             dismissedButton();
-                            slickInitialize();;
+                            slickInitialize();
+                            window.scrollTo(0, 0);
                         },
                     });
                 },
@@ -128,7 +143,11 @@ export function barbaInitialize() {
                     gsap.to(data.current.container, {
                         opacity: 0,
                     });
-                    gsap.to(".barba-transition", { x: "0", y: "100%", duration: 0 });
+                    gsap.to(".barba-transition", {
+                        x: "0",
+                        y: "100%",
+                        duration: 0,
+                    });
                     return gsap.to(".barba-transition", {
                         ease: "expo.out",
                         duration: duration,
@@ -151,7 +170,8 @@ export function barbaInitialize() {
                             });
                             animateNavbar();
                             dismissedButton();
-                            slickInitialize();;
+                            slickInitialize();
+                            window.scrollTo(0, 0);
                         },
                     });
                 },

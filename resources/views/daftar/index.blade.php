@@ -12,7 +12,7 @@
         <div class="murid mt-5 text-center">
             @foreach ($siswa as $siswas)
             <div>
-                <img class="img-fluid foto-murid" src="{{ Storage::url($siswas->image) }}" alt="">
+                <img class="img-fluid foto-murid mt-2" src="{{ Storage::url($siswas->image) }}" alt="">
                 <h5 class="t-murid">{{ $siswas->name}}</h5>
             </div>
             @endforeach

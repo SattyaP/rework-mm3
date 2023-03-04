@@ -36,7 +36,7 @@
         display: block;
     }
 
-    .hamburger {
+    .menu-hamburger {
         display: block;
         margin: 15px 20px 0px 0px;
     }
@@ -141,6 +141,36 @@
         margin: 0;
         font-size: 12px;
     }
+
+    .articles h5 {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .articles img {
+        display: none;
+    }
+
+    .btn-read:hover {
+        color: #ececec;
+    }
+
+    .card-populer
+    {
+        width: 100%;
+    }
+
+    .ads {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .bg-sidebar ul li a {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
 }
 
 /* 
@@ -203,7 +233,7 @@
         display: block;
     }
 
-    .hamburger {
+    .menu-hamburger {
         display: block;
         font-size: 20px;
     }
@@ -372,7 +402,17 @@
     .copyright p {
         margin: 0;
         font-size: 12px;
+    }   
+
+    .bg-sidebar ul li a {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
     }
+
+    /* blog */
+
+
 }
 
 /* 
@@ -431,7 +471,7 @@
         display: block;
     }
 
-    .hamburger {
+    .menu-hamburger {
         display: block;
         font-size: 20px;
         margin: 0px 20px -15px 0px;
@@ -649,6 +689,51 @@
         font-size: 12px;
     }
 
+    #tag {
+        display: none;
+    }
+
+    .btn-read {
+        display: inline;
+        font-size: 14px;
+    }
+
+    #time {
+        font-size: 14px;
+    }
+    
+    .card-article p {
+        font-size: 12px;
+    }
+
+    .card-article h1 {
+        font-size: 18px;
+    }
+
+    .btn-read {
+        font-size: 12px;
+        padding: 4px 20px;
+    }
+
+    .btn-subs {
+        font-size: 12px;
+    }
+
+    .articles h5 {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .bg-sidebar ul li a {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
 }
 
 
@@ -706,7 +791,7 @@
         display: block;
     }
 
-    .hamburger {
+    .menu-hamburger {
         display: block;
         font-size: 20px;
         margin: 12px 12px 0px 0px;
@@ -931,4 +1016,38 @@
         font-size: 10px;
     }
 
+    /* blog */
+    #time,
+    .btn-subs {
+        font-size: 14px;
+    }
+
+    .card-article h1 {
+        font-size: 18px;
+    }
+    .card-article p {
+        font-size: 12px;
+        word-wrap: break-word;
+    }
+
+    #tag {
+        display: none;
+    }
+
+    .btn-read {
+        display: block;
+        padding: 4px 0;
+        width: 110px;
+        font-size: 12px;
+    }
+
+    .hr-blog {
+        margin-top: 50px;
+    }
+
+    .bg-sidebar ul li a {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
 }

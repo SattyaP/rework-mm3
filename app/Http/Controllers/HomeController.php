@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Models\Tag;
+use Str;
 
 class HomeController extends Controller
 {
@@ -12,8 +15,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home.layout');
+    {   
+        $blog = Blog::latest()->paginate(10);
+
+        return view('home.layout', compact('blog'));
     }
 
     /**
@@ -43,9 +48,12 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
-        //
+        $blog = Blog::where('title', $title)->firstOrFail();
+
+        return view('admin.blog.show', compact('blog'));
+        // dd($blog);
     }
 
     /**

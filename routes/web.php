@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('gallery', [GalleryController::class, 'index']);
 Route::get('daftar-nama', [DaftarNamaController::class, 'index']);
+Route::get('/blog/{title}',[HomeController::class, 'show']);
 
 Route::prefix(Config::get("app.admin"))->group(function () {
     Route::redirect("/", "/" . Config::get("app.admin") . "/dashboard");

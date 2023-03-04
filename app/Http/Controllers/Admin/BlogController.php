@@ -45,7 +45,7 @@ class BlogController extends Controller
     {
         $this->validate($request,[
             'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg',
+            'image' => 'required|image|mimes:png,jpg,webp',
             'tag_id' => 'required',
             'description' => 'required',
             'article' => 'required'

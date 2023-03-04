@@ -44,12 +44,12 @@ class EventController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'image' => 'required|image|mimes:png,jpg'
+            // 'image' => 'required|image|mimes:png,jpg'
         ]);
-        $image = $request->file('image')->store('public/events');
+        // $image = $request->file('image')->store('public/events');
         $event = Event::create([
             'title' => $request->title,
-            'image' => $image
+            // 'image' => $image
         ]);
 
         if($event){
@@ -104,7 +104,7 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::findOrFail($id);
-        Storage::delete($event->image);
+        // Storage::delete($event->image);
         $event->delete();
 
         if($event){

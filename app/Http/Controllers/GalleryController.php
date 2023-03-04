@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Event;
 class GalleryController extends Controller
 {
     /**
@@ -13,7 +13,9 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        return view('gallery.index');
+        $event = Event::latest()->paginate(10);
+
+        return view('gallery.index', compact('event'));
     }
 
     /**

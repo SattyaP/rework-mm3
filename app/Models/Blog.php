@@ -15,6 +15,7 @@ class Blog extends Model
 
     public function tag()
     {
-        return $this->belongsTo('App\Models\Tag');
+        return $this->belongsTo(Tag::class);
     }
+
 }

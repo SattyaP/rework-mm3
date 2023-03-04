@@ -61,10 +61,7 @@
             <div class="hr-om my-5"></div>
         </div>
         @include('home.turu')
-        <!-- hr -->
-        <div class="container">
-            <div class="hr-om my-5"></div>
-        </div>
+        @include('home.blog')
         @include('home.name')
         @include('home.footer')
 

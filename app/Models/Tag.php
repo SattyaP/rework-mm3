@@ -13,8 +13,8 @@ class Tag extends Model
         'name','slug'
     ];
 
-    // public function blog()
-    // {
-    //     return $this->belongsTo(Blog::class);
-    // }
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class);
+    }
 }

@@ -8,6 +8,7 @@ use App\Models\Siswa;
 use App\Models\Event;
 use App\Models\Tag;
 use App\Models\Blog;
+use Auth;
 
 class DashboardController extends Controller
 {

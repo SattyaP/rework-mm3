@@ -7,9 +7,10 @@ use App\Models\Blog;
 use App\Models\Tag;
 use Str;
 
-class HomeController extends Controller
+class HomePageController extends Controller
 {
-    /**
+
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -48,9 +49,9 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($slug)
     {
-        $blog = Blog::where('title', $title)->firstOrFail();
+        $blog = Blog::where('slug', $slug)->firstOrFail();
 
         return view('admin.blog.show', compact('blog'));
         // dd($blog);

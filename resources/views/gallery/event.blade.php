@@ -2,7 +2,7 @@
 @php
     $carousel = [];
     foreach ($events->eventphoto as $eventphotos) {
-        array_push($carousel,$eventphotos->image);
+        array_push($carousel,Storage::url($eventphotos->image));
     }
 @endphp
 <div class="container mt-5" id="carousel">

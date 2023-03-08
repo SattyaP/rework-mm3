@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Blog;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Session;
+use Str;
 class BlogController extends Controller
 {
     /**
@@ -53,6 +54,7 @@ class BlogController extends Controller
         $image = $request->file('image')->store('public/blogs');
         $blog = Blog::create([
             'title' => $request->title,
+            'slug' => Str::slug($request->title),
             'image' => $image,
             'tag_id' => $request->tag_id,
             'description' => $request->description,

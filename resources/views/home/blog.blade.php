@@ -6,7 +6,7 @@
         </div>
         <hr />
         @foreach ($blog as $blogs)
-        <a data-barba-transition="right" href="{{ url('/blog/'. $blogs->title) }}">
+        <a data-barba-transition="right" href="{{ url('/blog/'. $blogs->slug) }}">
             <div class="card-article">
                 <div class="row">
                     <div class="col-lg-8">

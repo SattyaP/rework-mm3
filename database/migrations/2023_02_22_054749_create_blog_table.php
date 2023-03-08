@@ -17,6 +17,7 @@ class CreateBlogTable extends Migration
             $table->id();
             $table->unsignedBigInteger('tag_id');
             $table->string('title');
+            $table->string('slug')->unique();
             $table->string('image');
             $table->text('description');
             $table->text('article');

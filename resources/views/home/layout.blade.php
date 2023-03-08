@@ -22,9 +22,14 @@
     <link rel="stylesheet" href="{{ asset('home/css/responsive.css') }}" />
     <link rel="stylesheet" href="{{ asset('home/css/transisi.css') }}" />
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- slick -->
     <link rel="stylesheet" type="text/css" href="{{ asset('home/app/js/slick-theme.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('home/app/js/slick.css') }}" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
     <style>
         html {
@@ -141,6 +146,7 @@
     <script src="{{ asset('home/app/js/solid.min.js') }}"></script>
     <script src="{{ asset('home/app/js/slick.min.js') }}"></script>
     <script src="{{ asset('home/app/app.js') }}" type="module"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('home/app/utils/particles/web-particles.min.js') }}" type="module"></script>
 </body>
 

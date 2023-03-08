@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use App\Models\Event;
+use App\Models\EventPhoto;
 use Illuminate\Http\Request;
+use Session;
 
 class EventPhotoController extends Controller
 {
@@ -26,7 +29,9 @@ class EventPhotoController extends Controller
      */
     public function create()
     {
-        //
+        $event = Event::all();
+
+        return view('admin.event.create_photo', compact('event'));
     }
 
     /**
@@ -37,7 +42,24 @@ class EventPhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'event_id' => 'required',
+            'image' => 'required|image|mimes:png,jpg,webp'
+        ]);
+
+        $image = $request->file('image')->store('public/event-photo');
+        $eventphoto = EventPhoto::create([
+            'event_id' => $request->event_id,
+            'image' => $image
+        ]);
+
+        if ($eventphoto) {
+            Session::flash('success', 'Success adding photo event by ID');
+            return redirect()->route('event.index');
+        } else {
+            Session::flash('error', 'Failed adding photo event by ID');
+            return redirect()->route('event.index');
+        }
     }
 
     /**

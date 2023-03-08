@@ -15,7 +15,7 @@
             <h5 class="mt-1 font-weight-bold text-primary">Data Event</h5>
             <div>
                 <a class="btn btn-primary" href="./event/create">Tambah Event</a>
-                <a class="btn btn-primary" href="./event/photo">Tambah Gambar</a>
+                <a class="btn btn-primary" href="./photo/create">Tambah Gambar</a>
             </div>
         </div>
         <div class="card-body">

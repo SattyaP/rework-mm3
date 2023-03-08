@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{{ asset('admin/css/all-bs.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('admin/css/sb-admin-2.min.css') }}">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 </head>
 
 <body id="page-top">
@@ -37,6 +40,7 @@
 <script src="https://kit.fontawesome.com/97c59dbe97.js" crossorigin="anonymous"></script>
 <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
 <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 
 @yield('js')
 <script src="{{ asset('admin/js/admin.layout.script.js') }}"></script>
